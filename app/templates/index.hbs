@@ -1,0 +1,5 @@
+{{#if session.isAuthenticated}}
+  {{partial 'index-auth'}}
+{{else}}
+  {{partial 'index-no-auth'}}
+{{/if}}

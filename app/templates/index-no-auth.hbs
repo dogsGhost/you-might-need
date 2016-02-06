@@ -1,0 +1,37 @@
+<p>Enter the name and date of purchase for items you buy. After adding at least 2 points of purchase for the same item, YMN will start to generate a shopping list to remind you when you might need to purchase something again.</p>
+
+<form id="loginForm" method="post" {{action "signIn" email password on="submit"}}>
+  {{#if errorMessage}}
+    <p>{{errorMessage}}</p>
+  {{/if}}
+
+  <div class="">
+    <label for="loginEmail">Email</label><br>
+    {{input
+      id="loginEmail"
+      placeholder="your@email.com"
+      required="true"
+      type="email"
+      value=email
+    }}
+  </div>
+
+  <div class="">
+    <label for="loginPassword">Password</label><br>
+    {{input
+      id="loginPassword"
+      required="true"
+      type="password"
+      value=password
+    }}
+    <a href="#">Forget?</a>
+  </div>
+
+  <button class="btn btn-primary" type="submit">Login</button>
+</form>
+
+<p>
+  {{#link-to 'signup' class="btn btn-primary btn-lrg"}}Sign up{{/link-to}}
+  or
+  {{#link-to 'demo' class="btn btn-info"}}View Demo{{/link-to}}
+</p>

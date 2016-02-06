@@ -1,0 +1,32 @@
+<h2>Sign Up</h2>
+<P>YMN will never share your password with third-parties and will only email you if you forget your password and want to reset it.</p>
+<form id="signupForm" method="post" {{action "signUp" email password on="submit"}}>
+  <div class="">
+    <label for="loginEmail">Email</label><br>
+    {{input
+      id="loginEmail"
+      placeholder="your@email.com"
+      required="true"
+      type="email"
+      value=email
+    }}
+  </div>
+
+  <div class="">
+    <label for="loginPassword">Password</label><br>
+    {{input
+      id="loginPassword"
+      required="true"
+      type="password"
+      value=password
+    }}
+  </div>
+
+  {{#if signUpSuccess}}
+    <p>
+      Hello new user!
+    </p>
+  {{/if}}
+
+  <button type="submit" class="btn btn-primary">Sign Up</button>
+</form>

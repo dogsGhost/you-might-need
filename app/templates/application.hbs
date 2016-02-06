@@ -1,3 +1,19 @@
-<h2 id="title">Welcome to Ember</h2>
+<header class="page-header">
+  <div class="inner">
+  <h1 class="site-heading">{{#link-to 'index'}}YMN{{/link-to}}</h1>
 
-{{outlet}}
+  {{#if session.isAuthenticated}}
+    <div class="media media-user">
+      <img src={{session.currentUser.profileImageURL}} alt="">
+      <p>
+        Welcome, {{session.currentUser.email}} <br>
+        <button type="button" class="btn btn-warning" {{action "signOut"}}>Sign out</button>
+      </p>
+    </div>
+  {{/if}}
+  </div>
+</header>
+
+<div class="inner">
+  {{outlet}}
+</div>
