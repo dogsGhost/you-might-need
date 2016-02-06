@@ -1,0 +1,30 @@
+<div class="view-addItem">
+  <h3>Add Item</h3>
+  {{#link-to 'demo' class="btn btn-warning"}}Close{{/link-to}}
+  <hr />
+  <div>
+    <label for="nameInput">name</label><br/>
+    {{input
+      id="nameInput"
+      placeholder="item name"
+      type="text"
+      value=name
+    }}
+  </div>
+
+  <div>
+    <label for="dateInput">date</label><br/>
+    {{input
+      id="dateInput"
+      type="date"
+      value=date
+    }}
+  </div>
+
+  <button
+    {{action "addItem"}}
+    class="btn btn-primary"
+    type="button">
+    Add
+  </button>
+</div>

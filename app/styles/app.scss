@@ -52,6 +52,10 @@ body {
   }
 }
 
+h2, h3 {
+  margin: 0 0 0.5rem;
+}
+
 .btn {
   display: inline-block;
   padding: 0 1.5em;
@@ -89,4 +93,30 @@ body {
   &-lrg {
     font-size: 1.5em;
   }
+}
+
+.error {
+  padding: 0.5em;
+  background: #ffcece;
+}
+
+a {
+  color: darken(#22A7F0, 10%);
+
+  &:hover {
+    color: darken(#22A7f0, 20%);
+  }
+}
+
+.view-addItem {
+  background: #fff;
+  transition: 1s ease-out;
+}
+
+.is-hidden {
+  transform: translateY(-150%);
+}
+
+.is-visible {
+  transform: translateY(0);
 }

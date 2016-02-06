@@ -1,0 +1,15 @@
+{{#link-to 'demo.add' class="btn btn-primary btn-lrg"}}Add Item{{/link-to}}
+
+<ul>
+  {{#each model as |item|}}
+    {{! #if item.diffs}}
+      {{! #if item.mightBeNeeded}}
+        <li>
+          <button type="button" name="button">Add</button>
+          {{item.name}}
+          <button type="button" name="button">Hide</button>
+        </li>
+      {{! /if}}
+    {{! /if}}
+  {{/each}}
+</ul>

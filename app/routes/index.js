@@ -4,12 +4,11 @@ export default Ember.Route.extend({
   model() {
     let sessionContent = this.get('session').content;
     if (sessionContent.isAuthenticated) {
-      // return this.store.find('item', {
-      //   orderBy: 'userId',
-      //   equalTo: sessionContent.uid
-      // });
-      return [];
-    } else {
+      return this.store.query('item', {
+        orderBy: 'userId',
+        equalTo: sessionContent.uid
+      });
+      // return [];
     }
   },
 

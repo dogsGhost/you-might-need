@@ -29,11 +29,8 @@ export default Ember.Route.extend({
       }
     ];
 
-    src.forEach((item) => this.store.createRecord('item', item));
-
-    return this.store.findAll('item');
-    // let items = this.store.findAll('item').filter((item) => item.diffs);
-    // return items;
+    // src.forEach((item) => this.store.createRecord('item', item));
+    // return this.store.findAll('item');
 
     // if there's a diffs value then potentially user might need that item
     let model = src.filter((item) => item.diffs);
@@ -41,7 +38,7 @@ export default Ember.Route.extend({
     model = model.filter((item) => {
       return this.checkDates(item);
     });
-console.log(model);
+
     return model;
   },
 
