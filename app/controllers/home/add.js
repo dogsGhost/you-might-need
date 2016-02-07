@@ -9,8 +9,7 @@ export default Ember.Controller.extend({
   // Returns false if no match found otherwise returns matching item
   checkIfItemExists(string) {
     let exists = false;
-    const model = this.get('model');
-    model.forEach((item) => {
+    this.get('model').forEach((item) => {
       let name = item.get('name');
       if (string.toLowerCase() === name.toLowerCase()) { exists = item; }
     });
@@ -18,13 +17,13 @@ export default Ember.Controller.extend({
     return exists;
   },
 
+  // Live updates a list of item names that already exist for autocomplete purposes
   filteredItemNames: Ember.computed('itemName', function() {
     const itemName = this.get('itemName');
-    const model = this.get('model');
     const regex = new RegExp(itemName, 'i');
 
     if (!itemName) { return []; }
-    return model.filter((item) => {
+    return this.get('model').filter((item) => {
       return regex.test(item.get('name'));
     });
   }),
@@ -32,15 +31,15 @@ export default Ember.Controller.extend({
   actions: {
     addItem() {
       // TODO validate fields
-
-      let item = this.checkIfItemExists(this.get('itemName'));
+      const name = this.get('itemName').trim();
+      let item = this.checkIfItemExists(name);
       const newDate = this.get('itemDate');
 
       // if entry exists, update that record
       if (item) {
         const oldDiff = item.get('diffs');
         const oldDate = item.get('date');
-        let daysDiff = daysBetweenDates(new Date(oldDate), new Date(newDate));
+        const daysDiff = daysBetweenDates(new Date(oldDate), new Date(newDate));
 
         // if daysDiff is negative then oldDate is more recent
         if (daysDiff > -1) { item.set('date', newDate); }
@@ -49,7 +48,7 @@ export default Ember.Controller.extend({
       } else {
         // add new record to store
         item = this.store.createRecord('item', {
-          name: this.get('itemName'),
+          name,
           date: newDate,
           userId: this.get('session').get('uid')
         });
@@ -65,6 +64,7 @@ export default Ember.Controller.extend({
           this.set('itemDate', '');
         })
         .catch((err) => {
+          // TODO: on page alert there was an issue with the save
           // issue saving record
           console.log(err);
         });

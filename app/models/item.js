@@ -20,7 +20,8 @@ export default DS.Model.extend({
       return (1 * prev) + (1 * cur);
     });
 
-    return Math.round(total / diffArray.length);
+    // remove 1 from length to account for extra comma at end of string
+    return Math.round(total / (diffArray.length - 1));
   }),
 
   // determine if the number of days since last purchase of item is
