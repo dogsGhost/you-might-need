@@ -2,7 +2,7 @@ import Ember from 'ember';
 import formatDate from '../../utils/utility-format-date';
 
 export default Ember.Route.extend({
-  setupController: function(controller, model) {
+  setupController(controller, model) {
     const date = formatDate(new Date());
 
     controller.set('model', model);

@@ -3,7 +3,9 @@ import Ember from 'ember';
 export default Ember.Controller.extend({
   hasHidden: false,
 
-  hidden: Ember.computed.filterBy('model', 'isHidden', true),
+  notHidden: Ember.computed('model.@each.isHidden', function () {
+    return this.get('model').filterBy('isHidden', false);
+  }),
 
   actions: {
     hideItem(item) {
@@ -14,7 +16,7 @@ export default Ember.Controller.extend({
 
     unhideAll() {
       // set all items isHidden property to false
-      this.get('hidden').setEach('isHidden', false);
+      this.get('model').setEach('isHidden', false);
 
       // toggle hasHidden to hide the button that triggered this function call
       this.set('hasHidden', false);

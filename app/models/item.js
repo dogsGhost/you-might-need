@@ -8,6 +8,8 @@ export default DS.Model.extend({
   name: DS.attr('string'),
   userId: DS.attr('string'),
 
+  isHidden: false,
+
   // calculate number of days between current date and last purchase date of item
   daysSinceLastPurchase: Ember.computed('date', function () {
     return daysBetweenDates(new Date(this.get('date')), new Date());

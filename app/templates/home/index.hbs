@@ -6,16 +6,14 @@
 {{/if}}
 <hr>
 <ul class="itemList">
-  {{#each model as |item|}}
-    {{#unless item.isHidden}}
+  {{#each notHidden key=@item as |item|}}
       {{#if item.mightBeNeeded}}
         <li>
-          <button type="button" class="btn btn-info" {{action "updateItem" item}}>Add</button>
+          <button type="button" class="btn btn-info" {{action "updateItem" item}}>Bought Today</button>
           <span class="itemName">{{item.name}}</span>
           <button type="button" class="btn btn-warning" {{action "hideItem" item}}>Hide</button>
         </li>
       {{/if}}
-    {{/unless}}
   {{else}}
     <li>Nothing today, add items you've bought or check back tomorrow!</li>
   {{/each}}

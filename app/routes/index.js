@@ -7,7 +7,9 @@ export default Ember.Route.extend({
     }
   },
 
-  actions: {
-
+  setupController(controller, model) {
+    controller.set('model', model);
+    controller.set('email', '');
+    controller.set('password', '');
   }
 });

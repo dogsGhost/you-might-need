@@ -16,14 +16,14 @@ export default Ember.Route.extend({
           email,
           password
         })
-        .then((data) => {
-          console.log(data);
+        .then(() => {
           this.transitionTo('home');
         });
     },
 
     signOut() {
       this.get('session').close();
+      this.store.unloadAll();
       this.transitionTo('index');
     }
   }
