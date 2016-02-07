@@ -57,7 +57,7 @@ export default Ember.Controller.extend({
 
       // save to db
       item.save()
-        .then((record) => {
+        .then(() => {
           // TODO: on page alert that save was successful
 
           // clear fields

@@ -15,9 +15,12 @@ export default DS.Model.extend({
 
   // calculate average number of days between purchases of item
   averageDaysBetweenPurchases: Ember.computed('diffs', function () {
-    return this.get('diffs').split(',').reduce((prev, cur) => {
+    const diffArray = this.get('diffs').split(',');
+    const total = diffArray.reduce((prev, cur) => {
       return (1 * prev) + (1 * cur);
     });
+
+    return Math.round(total / diffArray.length);
   }),
 
   // determine if the number of days since last purchase of item is
