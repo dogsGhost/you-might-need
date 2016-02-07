@@ -1,3 +1,4 @@
+
 $black: #22313F;
 
 body {
@@ -66,6 +67,10 @@ h2, h3 {
   border: none;
   cursor: pointer;
 
+  &:hover {
+    color: #fff;
+  }
+
   &-primary {
     background: #22A7F0;
 
@@ -108,15 +113,12 @@ a {
   }
 }
 
-.view-addItem {
-  background: #fff;
-  transition: 1s ease-out;
-}
-
 .is-hidden {
-  transform: translateY(-150%);
+  display: none;
 }
 
-.is-visible {
-  transform: translateY(0);
+.itemList {
+  li {
+    margin: 0 0 0.5em;
+  }
 }

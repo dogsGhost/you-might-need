@@ -1,29 +1,13 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
-  model() {
-    let sessionContent = this.get('session').content;
-    if (sessionContent.isAuthenticated) {
-      return this.store.query('item', {
-        orderBy: 'userId',
-        equalTo: sessionContent.uid
-      });
-      // return [];
+  beforeModel() {
+    if (this.get('session').content.isAuthenticated) {
+      this.transitionTo('home');
     }
   },
 
   actions: {
-    signIn(email, password) {
-      this
-        .get('session')
-        .open('firebase', {
-          provider: 'password',
-          email,
-          password
-        });
-        // .then((data) => {
-        //   console.log(data);
-        // });
-    }
+
   }
 });

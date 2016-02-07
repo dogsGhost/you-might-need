@@ -1,0 +1,39 @@
+<div class="view-addItem">
+  <h2>Add Item</h2>
+  <button
+    class="btn btn-warning"
+    type="button"
+    {{action 'closeAddView'}}>
+    Close
+  </button>
+  <hr>
+  <form class="" method="post" {{action 'addItem' on="submit"}}>
+    <div>
+      <label for="itemNameInput">name</label><br/>
+      {{input
+        id="itemNameInput"
+        placeholder="item name"
+        required="true"
+        type="text"
+        value=itemName
+      }}
+    </div>
+
+    <div>
+      <label for="itemDateInput">date</label><br/>
+      {{input
+        id="itemDateInput"
+        max=maxDate
+        required="true"
+        type="date"
+        value=itemDate
+      }}
+    </div>
+
+    <button
+      class="btn btn-primary"
+      type="submit">
+      Add Item
+    </button>
+  </form>
+</div>

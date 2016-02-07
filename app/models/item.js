@@ -29,7 +29,7 @@ export default DS.Model.extend({
     function () {
       let daysSince = this.get('daysSinceLastPurchase');
       let avgDiff = this.get('averageDaysBetweenPurchases');
-      return daysSince - 1 >= avgDiff ? true : false;
+      return daysSince >= avgDiff ? true : false;
     }
   )
 });

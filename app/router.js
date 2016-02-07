@@ -6,11 +6,11 @@ const Router = Ember.Router.extend({
 });
 
 Router.map(function() {
-  this.route('signup');
-  this.route('demo', function() {
+  this.route('home', function() {
     this.route('add');
   });
-  this.route('add');
+  this.route('demo', function() {});
+  this.route('signup');
   this.route('reset');
 });
 

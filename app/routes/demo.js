@@ -4,24 +4,28 @@ export default Ember.Route.extend({
   model() {
     let src = [
       {
+        id: 0,
         userId: '625098ee-8c90-4db8-8436-3323ee07daae',
         name: 'rice',
         date: '2016-01-15',
         diffs: ''
       },
       {
+        id: 1,
         userId: '625098ee-8c90-4db8-8436-3323ee07daae',
         name: 'beans',
         date: '2016-01-13',
         diffs: '4'
       },
       {
+        id: 2,
         userId: '625098ee-8c90-4db8-8436-3323ee07daae',
         name: 'lettuce',
         date: '2016-02-02',
         diffs: '8'
       },
       {
+        id: 3,
         userId: '625098ee-8c90-4db8-8436-3323ee07daae',
         name: 'peanut butter',
         date: '2016-01-16',
@@ -29,8 +33,8 @@ export default Ember.Route.extend({
       }
     ];
 
-    // src.forEach((item) => this.store.createRecord('item', item));
-    // return this.store.findAll('item');
+    src.forEach((item) => this.store.createRecord('item', item));
+    return this.store.findAll('item');
 
     // if there's a diffs value then potentially user might need that item
     let model = src.filter((item) => item.diffs);
