@@ -1,17 +1,21 @@
-{{#link-to 'home.add' class="btn btn-primary btn-lrg"}}Add Item{{/link-to}}
+<div class="user-addItem">
+  {{#link-to 'home.add' class="btn btn-primary btn-full btn-lrg btn-addItem"}}Add Item{{/link-to}}
+</div>
 
-  <h2>You Might Need</h2>
-{{#if hasHidden}}
-  <button type="button" class="btn btn-info" {{action "unhideAll"}}>Unhide All</button>
-{{/if}}
-<hr>
-<ul class="itemList">
+<div class="user-header">
+  <h2 class="heading">You Might Need:</h2>
+  {{#if hasHidden}}
+    <button type="button" class="btn btn-warning btn-full btn-showHidden" {{action "unhideAll"}}>Show Hidden</button>
+  {{/if}}
+</div>
+
+<ul>
   {{#each notHidden key=@item as |item|}}
       {{#if item.mightBeNeeded}}
-        <li>
-          <button type="button" class="btn btn-info" {{action "updateItem" item}}>Bought Today</button>
-          <span class="itemName">{{item.name}}</span>
-          <button type="button" class="btn btn-warning" {{action "hideItem" item}}>Hide</button>
+        <li class="card item">
+          <h3 class="item-name">{{item.name}}</h3>
+          <button type="button" class="btn btn-primary item-btn1" {{action "updateItem" item}}>Bought Today</button>
+          <button type="button" class="btn btn-alert item-btn2" {{action "hideItem" item}}>Hide</button>
         </li>
       {{/if}}
   {{else}}

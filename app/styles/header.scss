@@ -1,0 +1,25 @@
+.page-header {
+  @include boxShadow(1);
+
+  margin: 0 0 1em;
+  background: $black;
+}
+
+.site-heading {
+  margin: 0;
+  font-weight: 400;
+  font-size: 1em;
+  line-height: 1;
+
+  a {
+    padding: 0.5em 1.125em;
+    display: inline-block;
+    color: #fff;
+    text-decoration: none;
+
+    &:hover {
+      color: $white;
+      background: lighten($black, 25%);
+    }
+  }
+}

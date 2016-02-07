@@ -1,19 +1,22 @@
 <header class="page-header">
   <div class="inner">
-  <h1 class="site-heading">{{#link-to 'index'}}YMN{{/link-to}}</h1>
-
-  {{#if session.isAuthenticated}}
-    <div class="media media-user">
-      <img src={{session.currentUser.profileImageURL}} alt="">
-      <p>
-        Welcome, {{session.currentUser.email}} <br>
-        <button type="button" class="btn btn-warning" {{action "signOut"}}>Sign out</button>
-      </p>
-    </div>
-  {{/if}}
+    <h1 class="site-heading">
+      {{#link-to 'index'}}
+        {{#if session.isAuthenticated}}
+          {{session.currentUser.email}} |
+        {{/if}}
+        YMN
+      {{/link-to}}
+    </h1>
   </div>
 </header>
 
 <div class="inner">
   {{outlet}}
+
+  <div class="page-footer">
+    {{#if session.isAuthenticated}}
+      <button type="button" class="btn btn-warning btn-sm" {{action "signOut"}}>Sign out</button>
+    {{/if}}
+  </div>
 </div>

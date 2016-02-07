@@ -1,0 +1,17 @@
+.item {
+  display: flex;
+  flex-flow: row wrap;
+  justify-content: space-around;
+
+  &-name {
+    flex: 1 100%;
+  }
+
+  &-btn1 {
+
+  }
+
+  &-btn2 {
+
+  }
+}
