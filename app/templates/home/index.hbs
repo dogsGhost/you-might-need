@@ -8,7 +8,6 @@
 <ul class="itemList">
   {{#each model as |item|}}
     {{#unless item.isHidden}}
-    {{#if item.diffs}}
       {{#if item.mightBeNeeded}}
         <li>
           <button type="button" class="btn btn-info">Add</button>
@@ -16,7 +15,8 @@
           <button type="button" class="btn btn-warning" {{action "hideItem" item}}>Hide</button>
         </li>
       {{/if}}
-    {{/if}}
     {{/unless}}
+  {{else}}
+    <li>Nothing today, add items you've bought or check back tomorrow!</li>
   {{/each}}
 </ul>

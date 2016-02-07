@@ -5,28 +5,28 @@ export default Ember.Route.extend({
     let src = [
       {
         id: 0,
-        userId: '625098ee-8c90-4db8-8436-3323ee07daae',
+        userId: 'e49r-ooe0438',
         name: 'rice',
         date: '2016-01-15',
         diffs: ''
       },
       {
         id: 1,
-        userId: '625098ee-8c90-4db8-8436-3323ee07daae',
+        userId: 'e49r-ooe0438',
         name: 'beans',
         date: '2016-01-13',
         diffs: '4'
       },
       {
         id: 2,
-        userId: '625098ee-8c90-4db8-8436-3323ee07daae',
+        userId: 'e49r-ooe0438',
         name: 'lettuce',
         date: '2016-02-02',
         diffs: '8'
       },
       {
         id: 3,
-        userId: '625098ee-8c90-4db8-8436-3323ee07daae',
+        userId: 'e49r-ooe0438',
         name: 'peanut butter',
         date: '2016-01-16',
         diffs: '4,6,8'

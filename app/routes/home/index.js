@@ -1,6 +1,8 @@
 import Ember from 'ember';
 
 export default Ember.Route.extend({
+  hidden: Ember.computed.filterBy('model', 'isHidden', true),
+
   actions: {
     hideItem(item) {
       item.set('isHidden', true);
@@ -8,11 +10,10 @@ export default Ember.Route.extend({
     },
 
     unhideAll() {
-      let hidden = this.store.query('item', { isHidden: true });
-      hidden.then(() => {
-        console.log(hidden.get('length'));
-      });
-      this.controller.set('hasHidden', false);
+      // set all items isHidden property to false
+
+      // toggle hasHidden to hide the button that triggered this function call
+      // this.controller.set('hasHidden', false);
     }
   }
 });

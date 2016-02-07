@@ -7,10 +7,10 @@ export default Ember.Route.extend({
     }
   },
 
-  // model() {
-  //   return this.store.query('item', {
-  //     orderBy: 'userId',
-  //     equalTo: this.get('session').uid
-  //   });
-  // }
+  model() {
+    return this.store.query('item', {
+      orderBy: 'userId',
+      equalTo: this.get('session').content.uid
+    });
+  }
 });

@@ -1,6 +1,6 @@
 {
   "name": "you-might-need",
-  "version": "0.0.1",
+  "version": "0.0.5",
   "description": "predictive shopping list app",
   "private": true,
   "directories": {
@@ -16,7 +16,7 @@
   "engines": {
     "node": ">= 0.10.0"
   },
-  "author": "",
+  "author": "David",
   "license": "MIT",
   "devDependencies": {
     "broccoli-asset-rev": "^2.2.0",

@@ -1,17 +1,16 @@
 import Ember from 'ember';
 import DS from 'ember-data';
+import daysBetweenDates from '../utils/utility-days-between-dates';
 
 export default DS.Model.extend({
   date: DS.attr('string'),
-  diffs: DS.attr('string'),
+  diffs: DS.attr('string', {defaultValue: ''}),
   name: DS.attr('string'),
   userId: DS.attr('string'),
 
   // calculate number of days between current date and last purchase date of item
   daysSinceLastPurchase: Ember.computed('date', function () {
-    let lastPurchase = new Date(this.get('date'));
-    let now = new Date();
-    return Math.round((now - lastPurchase) / (1000 * 60 * 60 * 24));
+    return daysBetweenDates(new Date(this.get('date')), new Date());
   }),
 
   // calculate average number of days between purchases of item
@@ -27,6 +26,7 @@ export default DS.Model.extend({
     'daysSinceLastPurchase',
     'averageDaysBetweenPurchases',
     function () {
+      if (!this.get('diffs')) { return false; }
       let daysSince = this.get('daysSinceLastPurchase');
       let avgDiff = this.get('averageDaysBetweenPurchases');
       return daysSince >= avgDiff ? true : false;

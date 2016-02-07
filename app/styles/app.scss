@@ -23,6 +23,7 @@ body {
 .site-heading {
   margin: 0;
   font-weight: 400;
+  font-size: 1.125em;
   line-height: 1;
   text-align: center;
 
@@ -46,10 +47,13 @@ body {
   }
 
   &-user {
-    // position: absolute;
-    // top: 0.5em;
-    // right: 0.5em;
     background: #fff;
+
+    img {
+      display: block;;
+      width: auto;
+      height: 3em;
+    }
   }
 }
 

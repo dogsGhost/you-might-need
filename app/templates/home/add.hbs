@@ -11,12 +11,18 @@
     <div>
       <label for="itemNameInput">name</label><br/>
       {{input
+        autocomplete="off"
         id="itemNameInput"
         placeholder="item name"
         required="true"
         type="text"
         value=itemName
       }}
+      <ul>
+        {{#each item in filteredItemNames}}
+          <li tabindex="0">{{item.name}}</li>
+        {{/each}}
+      </ul>
     </div>
 
     <div>
