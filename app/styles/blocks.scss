@@ -1,0 +1,37 @@
+.inner {
+  position: relative;;
+  margin: 0 auto;
+  width: 95%;
+  max-width: $max-width;
+}
+
+.section-callout {
+  margin: 0 0 1.75em;
+}
+
+.section-header {
+  margin: 0 0 1em;
+
+  .section-heading {
+    margin: 0;
+  }
+
+  .btn-showHidden {
+    margin: 0.5rem 0 0;
+  }
+}
+
+.card {
+  @include boxShadow(1);
+
+  margin: 0 0 1em;
+  padding: 1em;
+  background: $white;
+}
+
+.flat {
+
+  &-heading {
+    margin: 0 0 0.25rem;
+  }
+}

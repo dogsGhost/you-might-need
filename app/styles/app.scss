@@ -1,21 +1,19 @@
 @import url(https://fonts.googleapis.com/css?family=Open+Sans:400,600);
 
 $black: #22313f;
-$blue: #1e8bc3;
-$orange: #f2784b;
-$yellow: #f9bf3b;
+$blue: desaturate(#1e8bc3, 10%);
+$orange: desaturate(#F2784B, 10%);
+$yellow: desaturate(#f9bf3b, 10%);
 $light-grey: #eee;
 $white: #fff;
 
-$max-width: 28em;
+$max-width: 30em;
 
 @import 'mixins';
-
-@import 'reset';
+@import 'normalize';
 @import 'base';
-
+@import 'blocks';
+@import 'site-wide';
 @import 'buttons';
-@import 'header';
-
-@import 'user-home';
 @import 'item';
+@import 'form';

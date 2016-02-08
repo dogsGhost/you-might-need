@@ -1,33 +1,41 @@
-<div class="view-addItem">
-  <h2>Add Item</h2>
+<div class="section-callout">
   <button
-    class="btn btn-warning"
+    class="btn btn-alert btn-lrg btn-full"
     type="button"
     {{action 'closeAddView'}}>
-    Close
+    Return to list
   </button>
-  <hr>
-  <form class="" method="post" {{action 'addItem' on="submit"}}>
-    <div>
-      <label for="itemNameInput">name</label><br/>
-      {{input
-        autocomplete="off"
-        id="itemNameInput"
-        placeholder="item name"
-        required="true"
-        type="text"
-        value=itemName
-      }}
-      <ul>
-        {{#each item in filteredItemNames}}
-          <li tabindex="0">{{item.name}}</li>
-        {{/each}}
-      </ul>
+</div>
+
+<div class="section-header">
+  <h2 class="section-heading">Add Item</h2>
+</div>
+  <div class="card view-addItem">
+  <form class="form" method="post" {{action 'addItem' on="submit"}}>
+    <div class="input-group">
+      <label class="input-label" for="itemNameInput">Name</label>
+      <div class="input-autocomplete">
+        {{input
+          autocomplete="off"
+          class="input"
+          id="itemNameInput"
+          placeholder="item name"
+          required="true"
+          type="text"
+          value=itemName
+        }}
+        <ul class="autocompleteList">
+          {{#each filteredItemNames as |item|}}
+            <li class="autocompleteList-item" tabindex="0">{{item.name}}</li>
+          {{/each}}
+        </ul>
+      </div>
     </div>
 
-    <div>
-      <label for="itemDateInput">date</label><br/>
+    <div class="input-group">
+      <label class="input-label" for="itemDateInput">Purchase Date</label>
       {{input
+        class="input"
         id="itemDateInput"
         max=maxDate
         required="true"
@@ -42,4 +50,5 @@
       Add Item
     </button>
   </form>
+
 </div>

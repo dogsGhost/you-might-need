@@ -1,0 +1,42 @@
+.form {
+  margin: 0 auto;
+  max-width: 18em;
+}
+
+.input {
+  padding: 0.5em 1.125em;
+
+  &-label {
+    display: block;
+    font-weight: 600;
+  }
+
+  &-group {
+    margin: 0 0 1em;
+  }
+}
+
+.input-autocomplete {
+  position: relative;
+}
+
+.autocompleteList {
+  @include boxShadow(2);
+  position: absolute;
+  top: 100%;
+  left: 0;
+  width: 100%;
+  max-width: 12em;
+  color: lighten($black, 17%);
+  background: $white;
+
+  &-item {
+    padding: 0 1.125em;
+    line-height: 2.625;
+    border-top: 1px solid $light-grey;
+
+    &:first-child {
+      border: none;
+    }
+  }
+}

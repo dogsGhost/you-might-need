@@ -1,14 +1,21 @@
-<h2>Reset Password</h2>
+<div class="flat">
+  <h3 class="flat-heading">Reset Password</h3>
+  <p>
+    Enter your email address, then check your email for instructions on how to reset your YMN password.
+  </p>
+</div>
 
-<p>
-  Enter your email address, then check your email for instructions on how to reset your YMN password.
-</p>
-
-<p>
-  <label for="resetEmailInput">Your Email</label><br>
-  {{input
-    id="resetEmailInput"
-    type="email"
-    value=email
-  }}
-</p>
+<div class="card">
+  <form class="form" {{action "resetPassword"}} method="post">
+    <div class="input-group">
+      <label class="input-label" for="resetEmailInput">Your Email</label>
+      {{input
+        class="input"
+        id="resetEmailInput"
+        type="email"
+        value=email
+      }}
+    </div>
+    <button type="submit" class="btn btn-primary">Reset Password</button>
+  </form>
+</div>

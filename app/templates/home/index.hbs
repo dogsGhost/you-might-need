@@ -1,9 +1,9 @@
-<div class="user-addItem">
+<div class="section-callout">
   {{#link-to 'home.add' class="btn btn-primary btn-full btn-lrg btn-addItem"}}Add Item{{/link-to}}
 </div>
 
-<div class="user-header">
-  <h2 class="heading">You Might Need:</h2>
+<div class="section-header">
+  <h2 class="section-heading">You Might Need</h2>
   {{#if hasHidden}}
     <button type="button" class="btn btn-warning btn-full btn-showHidden" {{action "unhideAll"}}>Show Hidden</button>
   {{/if}}
@@ -19,6 +19,6 @@
         </li>
       {{/if}}
   {{else}}
-    <li>Nothing today, add items you've bought or check back tomorrow!</li>
+    <li class="card item"><p>Nothing today, add items you've bought or check back tomorrow!</p></li>
   {{/each}}
 </ul>

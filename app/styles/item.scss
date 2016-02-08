@@ -1,9 +1,11 @@
 .item {
   display: flex;
   flex-flow: row wrap;
-  justify-content: space-around;
+  justify-content: space-between;
 
   &-name {
+    margin: 0 0 1rem;
+    padding: 0.5rem;
     flex: 1 100%;
   }
 

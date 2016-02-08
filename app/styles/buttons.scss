@@ -5,6 +5,7 @@
   padding: 0 1.125em;
   font-size: 1em;
   line-height: 2.625;
+  text-align: center;
   text-decoration: none;
   text-transform: uppercase;
   color: #fff;
@@ -22,7 +23,7 @@
     background: $blue;
 
     &:hover {
-      background: darken($blue, 2%);
+      background: darken($blue, 3%);
     }
   }
 
@@ -30,7 +31,7 @@
     background: $orange;
 
     &:hover {
-      background: darken($orange, 2%);
+      background: darken($orange, 3%);
     }
   }
 
@@ -38,7 +39,7 @@
     background: $yellow;
 
     &:hover {
-      background: darken($yellow, 2%);
+      background: darken($yellow, 3%);
     }
   }
 

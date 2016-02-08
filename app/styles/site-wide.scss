@@ -6,10 +6,10 @@
 }
 
 .site-heading {
-  margin: 0;
   font-weight: 400;
   font-size: 1em;
   line-height: 1;
+  text-align: center;
 
   a {
     padding: 0.5em 1.125em;
@@ -22,4 +22,9 @@
       background: lighten($black, 25%);
     }
   }
+}
+
+.page-footer {
+  padding: 0 0 1em;
+  text-align: right;
 }

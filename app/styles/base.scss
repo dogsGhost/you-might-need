@@ -6,13 +6,13 @@ body {
   margin: 0;
   padding: 0;
   font: 1em/1.5 'Open Sans', sans-serif;
-  text-align: center;
   color: $black;
   background: $light-grey;
 }
 
-h2, h3, p {
-  margin: 0 0 1rem;
+h1, h2, h3, h4 {
+  margin: 0;
+  line-height: 1.1;
 }
 
 h2 {
@@ -23,8 +23,12 @@ h3 {
   font-size: 1.25em;
 }
 
+h4 {
+  font-size: 1.125em;
+}
+
 p {
-  text-align: left;
+  margin: 0 0 1em;
 }
 
 ul, li {
@@ -39,24 +43,4 @@ a {
   &:hover {
     color: darken($blue, 25%);
   }
-}
-
-.page-footer {
-  padding: 0 1em 1em;
-  text-align: right;
-}
-
-.inner {
-  position: relative;;
-  margin: 0 auto;
-  width: 96%;
-  max-width: $max-width;
-}
-
-.card {
-  @include boxShadow(1);
-
-  margin: 0 0 1em;
-  padding: 1em;
-  background: $white;
 }
