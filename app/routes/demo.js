@@ -37,13 +37,13 @@ export default Ember.Route.extend({
     return this.store.findAll('item');
 
     // if there's a diffs value then potentially user might need that item
-    let model = src.filter((item) => item.diffs);
-    // check if date is old enough that we need the item
-    model = model.filter((item) => {
-      return this.checkDates(item);
-    });
+    // let model = src.filter((item) => item.diffs);
+    // // check if date is old enough that we need the item
+    // model = model.filter((item) => {
+    //   return this.checkDates(item);
+    // });
 
-    return model;
+    // return model;
   },
 
   getPurchaseDiff(string) {
