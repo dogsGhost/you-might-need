@@ -17,6 +17,7 @@ export default Ember.Route.extend({
           password
         })
         .then(() => {
+          window.scrollTo(0, 0);
           this.transitionTo('home');
         });
     },
