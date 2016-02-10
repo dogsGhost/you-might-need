@@ -4,8 +4,13 @@ module.exports = function(environment) {
   var ENV = {
     modulePrefix: 'you-might-need',
     environment: environment,
-    contentSecurityPolicy: { 'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com" },
-    firebase: 'https://<YOUR-FIREBASE-APP>.firebaseio.com/',
+    contentSecurityPolicy: {
+      'connect-src': "'self' https://auth.firebase.com wss://*.firebaseio.com",
+      'font-src': "'self' https://fonts.gstatic.com",
+      'img-src': "'self' https://secure.gravatar.com",
+      'style-src': "'self' http://fonts.googleapis.com https://fonts.googleapis.com"
+    },
+    firebase: 'https://you-might-need.firebaseio.com/',
     torii: {
       sessionServiceName: 'session'
     },
