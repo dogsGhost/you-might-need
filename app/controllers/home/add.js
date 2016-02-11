@@ -5,6 +5,7 @@ export default Ember.Controller.extend({
   itemDate: '',
   itemName: '',
   maxDate: '',
+  showList: false,
 
   // Returns false if no match found otherwise returns matching item
   checkIfItemExists(string) {
@@ -29,6 +30,15 @@ export default Ember.Controller.extend({
   }),
 
   actions: {
+    focusFirstListItem() {
+      this.set('showList', true);
+    },
+
+    listItemActions(item) {
+      this.set('itemName', item.get('name'));
+      this.set('showList', false);
+    },
+
     addItem() {
       // TODO validate fields
       const name = this.get('itemName').trim();

@@ -19,14 +19,22 @@
           autocomplete="off"
           class="input"
           id="itemNameInput"
+          key-down="focusFirstListItem"
           placeholder="item name"
           required="true"
           type="text"
           value=itemName
         }}
-        <ul class="autocompleteList">
+        <ul
+          class={{ if showList 'autocompleteList' 'autocompleteList is-hidden'}}
+          id="autocompleteList">
           {{#each filteredItemNames as |item|}}
-            <li class="autocompleteList-item" tabindex="0">{{item.name}}</li>
+            <li
+              class="autocompleteList-item"
+              tabindex="0"
+              {{action 'listItemActions' item}}>
+              {{item.name}}
+            </li>
           {{/each}}
         </ul>
       </div>
