@@ -5,17 +5,31 @@
   </p>
 </div>
 
-<div class="card">
-  <form class="form" {{action "resetPassword"}} method="post">
-    <div class="input-group">
-      <label class="input-label" for="resetEmailInput">Your Email</label>
-      {{input
-        class="input"
-        id="resetEmailInput"
-        type="email"
-        value=email
-      }}
-    </div>
-    <button type="submit" class="btn btn-primary">Reset Password</button>
-  </form>
-</div>
+{{#if resetSuccess}}
+  <p>
+     Please check your email, a new password has been sent to you.
+  </p>
+  {{#link-to 'index' class="btn btn-primary"}}Login{{/link-to}}
+{{else}}
+
+  {{#if errorMsg}}
+    <p class="error">
+      {{errorMsg}}
+    </p>
+  {{/if}}
+
+  <div class="card">
+    <form class="form"  method="post" {{action 'resetPassword' on="submit"}}>
+      <div class="input-group">
+        <label class="input-label" for="resetEmailInput">Your Email</label>
+        {{input
+          class="input"
+          id="resetEmailInput"
+          type="email"
+          value=email
+        }}
+      </div>
+      <button type="submit" class="btn btn-primary">Reset Password</button>
+    </form>
+  </div>
+{{/if}}

@@ -1,6 +1,6 @@
 import Ember from 'ember';
 import Firebase from 'firebase';
-import ENV from './../config/environment';
+import ENV from 'you-might-need/config/environment';
 
 export default Ember.Controller.extend({
   showErrorMsg: false,

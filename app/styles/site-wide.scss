@@ -36,3 +36,8 @@
 .is-hidden {
   display: none;
 }
+
+.error {
+  padding-left: 0.25em;
+  background: lighten($orange, 20%);
+}
