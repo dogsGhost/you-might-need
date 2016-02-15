@@ -7,6 +7,15 @@ let App;
 
 Ember.MODEL_FACTORY_INJECTIONS = true;
 
+// add support for data attributes on linkTos and inputHelpers
+Ember.LinkComponent.reopen({
+  attributeBindings: ['data-tests']
+});
+
+Ember.TextField.reopen({
+  attributeBindings: ['data-tests']
+});
+
 App = Ember.Application.extend({
   modulePrefix: config.modulePrefix,
   podModulePrefix: config.podModulePrefix,

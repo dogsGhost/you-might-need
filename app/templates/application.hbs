@@ -17,7 +17,13 @@
 
   <div class="page-footer">
     {{#if session.isAuthenticated}}
-      <button type="button" class="btn btn-warning btn-sm" {{action "signOut"}}>Log Out</button>
+      <button
+        class="btn btn-warning btn-sm"
+        data-tests="logoutBtn"
+        type="button"
+        {{action "signOut"}}>
+        Log Out
+      </button>
     {{/if}}
   </div>
 </div>

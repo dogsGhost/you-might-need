@@ -4,7 +4,7 @@
 </div>
 
 <div class="card">
-  <form class="form" method="post" {{action "signIn" email password on="submit"}}>
+  <form class="form" data-tests="loginForm" method="post" {{action "signIn" email password on="submit"}}>
     {{#if errorMessage}}
       <p>{{errorMessage}}</p>
     {{/if}}
@@ -13,6 +13,7 @@
       <label class="input-label" for="loginEmail">Email</label>
       {{input
         class="input"
+        data-tests="loginEmail"
         id="loginEmail"
         placeholder="your@email.com"
         required="true"
@@ -25,6 +26,7 @@
       <label class="input-label" for="loginPassword">Password</label>
       {{input
         class="input"
+        data-tests="loginPassword"
         id="loginPassword"
         required="true"
         type="password"
@@ -33,7 +35,12 @@
       {{#link-to 'reset'}}Forget?{{/link-to}}
     </div>
 
-    <button class="btn btn-primary" type="submit">Login</button>
+    <button
+      class="btn btn-primary"
+      data-tests="loginBtn"
+      type="submit">
+      Login
+    </button>
   </form>
 </div>
 

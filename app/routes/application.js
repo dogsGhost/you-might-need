@@ -9,17 +9,21 @@ export default Ember.Route.extend({
 
   actions: {
     signIn(email, password) {
-      this
-        .get('session')
-        .open('firebase', {
-          provider: 'password',
-          email,
-          password
-        })
-        .then(() => {
-          window.scrollTo(0, 0);
-          this.transitionTo('home');
-        });
+      const creds = {
+        email,
+        password,
+        provider: 'password'
+      };
+      const testing = Ember.testing;
+      const waiter = () => false;
+
+      if (testing) { Ember.Test.registerWaiter(waiter); }
+
+      this.get('session').open('firebase', creds).then(() => {
+        if (testing) { Ember.Test.unregisterWaiter(waiter); }
+        window.scrollTo(0, 0);
+        this.transitionTo('home');
+      });
     },
 
     signOut() {
