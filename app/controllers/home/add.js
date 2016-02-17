@@ -12,7 +12,7 @@ export default Ember.Controller.extend({
     let exists = false;
     this.get('model').forEach((item) => {
       let name = item.get('name');
-      if (string.toLowerCase() === name.toLowerCase()) { exists = item; }
+      if (string.toLowerCase().trim() === name.toLowerCase()) { exists = item; }
     });
 
     return exists;
