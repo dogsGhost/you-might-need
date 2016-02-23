@@ -16,7 +16,6 @@
   &:hover {
     color: #fff;
     @include boxShadow(2);
-    // transform: translateY(-1px);
   }
 
   &-primary {
