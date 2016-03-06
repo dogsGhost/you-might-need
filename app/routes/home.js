@@ -2,7 +2,6 @@ import Ember from 'ember';
 import daysBetweenDates from '../utils/utility-days-between-dates';
 import formatDate from '../utils/utility-format-date';
 
-
 export default Ember.Route.extend({
   beforeModel() {
     if (!this.get('session').content.isAuthenticated) {
@@ -17,17 +16,21 @@ export default Ember.Route.extend({
     });
   },
 
+  updateExistingItem(item, date) {
+    const oldDiff = item.get('diffs');
+    const oldDate = item.get('date');
+    const daysDiff = daysBetweenDates(new Date(oldDate), new Date(date));
+
+    // if daysDiff is negative then oldDate is more recent
+    if (daysDiff > -1) { item.set('date', date); }
+    // add new diff to diffs string
+    item.set('diffs', `${oldDiff}${Math.abs(daysDiff)},`);
+  },
+
   actions: {
-    // TODO: refactor to remove duplicate code used here and in `home.add:controller`
     updateItem(item) {
       const newDate = formatDate(new Date());
-      const oldDiff = item.get('diffs');
-      const oldDate = item.get('date');
-      let daysDiff = daysBetweenDates(new Date(oldDate), new Date(newDate));
-
-      item.set('date', newDate);
-      // add new diff to diffs string
-      item.set('diffs', `${oldDiff}${Math.abs(daysDiff)},`);
+      this.updateExistingItem(item, newDate);
       // save to db
       item.save()
         .then(() => {

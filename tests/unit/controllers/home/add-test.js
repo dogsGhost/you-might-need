@@ -60,3 +60,27 @@ test('filteredItemNames', function(assert) {
   results = controller.get('filteredItemNames');
   assert.strictEqual(results[0].name, 'chocolate');
 });
+
+
+test('action: addItem', function(assert) {
+  let controller = this.subject();
+
+  controller.set('itemName', 'rice');
+  controller.set('model', Ember.ArrayProxy.create({
+    content: [
+      Ember.Object.create({name: 'rice'}),
+      Ember.Object.create({name: 'ravioli'}),
+      Ember.Object.create({name: 'beans'}),
+      Ember.Object.create({name: 'black beans'}),
+      Ember.Object.create({name: 'chocolate'}),
+      Ember.Object.create({name: 'cheese'})
+    ]
+  }));
+
+  controller.send('addItem');
+  assert.ok(true, 'new item'); // TODO
+
+  controller.set('itemName', 'salsa');
+  controller.send('addItem');
+  assert.ok(true, 'existing item'); // TODO
+});

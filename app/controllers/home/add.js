@@ -1,5 +1,4 @@
 import Ember from 'ember';
-import daysBetweenDates from '../../utils/utility-days-between-dates';
 
 export default Ember.Controller.extend({
   itemDate: '',
@@ -47,14 +46,7 @@ export default Ember.Controller.extend({
 
       // if entry exists, update that record
       if (item) {
-        const oldDiff = item.get('diffs');
-        const oldDate = item.get('date');
-        const daysDiff = daysBetweenDates(new Date(oldDate), new Date(newDate));
-
-        // if daysDiff is negative then oldDate is more recent
-        if (daysDiff > -1) { item.set('date', newDate); }
-        // add new diff to diffs string
-        item.set('diffs', `${oldDiff}${Math.abs(daysDiff)},`);
+        this.updateExistingItem(item, newDate);
       } else {
         // add new record to store
         item = this.store.createRecord('item', {
